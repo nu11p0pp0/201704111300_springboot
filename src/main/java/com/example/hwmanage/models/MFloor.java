@@ -1,40 +1,39 @@
-/**
- * 
- */
 package com.example.hwmanage.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import javax.persistence.*;
+
 
 /**
- * @author saitoshu
- *
+ * The persistent class for the m_floor database table.
+ * 
  */
 @Entity
-@Table(name = "M_FLOOR")
-public class MFloor {
+@Table(name="m_floor")
+@NamedQuery(name="MFloor.findAll", query="SELECT m FROM MFloor m")
+public class MFloor implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "floor_cd")
-	protected Integer floorCd;
+	@Column(name="floor_cd")
+	private Long floorCd;
 
-	@NotNull
-	@Column(name = "floor_name")
-	protected String floorName;
+	@Column(name="floor_name")
+	private String floorName;
 
-	public Integer getFloorCd() {
-		return floorCd;
+	public MFloor() {
 	}
 
-	public void setFloorCd(Integer floorCd) {
+	public Long getFloorCd() {
+		return this.floorCd;
+	}
+
+	public void setFloorCd(Long floorCd) {
 		this.floorCd = floorCd;
 	}
 
 	public String getFloorName() {
-		return floorName;
+		return this.floorName;
 	}
 
 	public void setFloorName(String floorName) {

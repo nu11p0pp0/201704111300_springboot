@@ -15,17 +15,17 @@ import org.hibernate.validator.constraints.NotBlank;
 public class FloorForm implements HwManageForm {
 
 	@NotNull
-	protected Integer floorCd;
+	protected Long floorCd;
 
 	@NotBlank
 	@Size(max=40)
 	protected String floorName;
 
-	public Integer getFloorCd() {
+	public Long getFloorCd() {
 		return floorCd;
 	}
 
-	public void setFloorCd(Integer floorCd) {
+	public void setFloorCd(Long floorCd) {
 		this.floorCd = floorCd;
 	}
 
