@@ -1,12 +1,13 @@
 /**
  * 
  */
-package com.example.hwmanage;
+package com.example.hwmanage.form;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  * @author saitoshu
@@ -16,17 +17,18 @@ public class FloorForm implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@NotNull
-	protected int floorCd;
-	@NotNull
+	@NotBlank
+	protected Integer floorCd;
+
+	@NotBlank
 	@Size(max=40)
 	protected String floorName;
 
-	public int getFloorCd() {
+	public Integer getFloorCd() {
 		return floorCd;
 	}
 
-	public void setFloorCd(int floorCd) {
+	public void setFloorCd(Integer floorCd) {
 		this.floorCd = floorCd;
 	}
 
@@ -38,5 +40,4 @@ public class FloorForm implements Serializable {
 		this.floorName = floorName;
 	}
 
-	
 }

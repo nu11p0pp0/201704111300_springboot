@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="ja">
 
-<title>Spring Framework Guru</title>
+<title>Mフロア</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -24,7 +24,7 @@
 
 		</div>
 	</nav>
-	<form action="#" th:action="@{./floor}" method="post" th:object="${form}">
+	<form action="#" th:action="@{./floor}" method="post" th:object="${floorForm}">
 
 		<div class="container">
 			<div style="width: 300px;">
@@ -33,17 +33,17 @@
 					<input
 						type="text" class="form-control" id="inputText" name="ftext"
 						maxlength="2" th:field="*{floorCd}" th:errorclass="fieldError" />
-					<span th:if="${#fields.hasErrors('*{floorCd}')}">フロアコード入力エラー！</span>
+					<span th:if="${#fields.hasErrors('floorCd')}" class="text-danger" th:errors="*{floorCd}">フロアコード入力エラー！</span>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="inputText">フロア名</label>
 					<input
 						type="text" class="form-control" id="inputText" name="ftext"
 						maxlength="40" th:field="*{floorName}" th:errorclass="fieldError" />
-					<span th:if="${#fields.hasErrors('floorName')}" th:errors="*{floorName}">フロア名入力エラー！</span>
+					<span th:if="${#fields.hasErrors('floorName')}" class="text-danger" th:errors="*{floorName}">フロア名入力エラー！</span>
 				</div>
 				<button type="submit" class="btn btn-primary">追加</button>
-				<button type="button"  th:href="@{'/floor'}" class="btn btn-default">クリア</button>
+				<a href="#" th:href="@{./floor}" class="btn btn-default">クリア</a>
 			</div>
 
 			<div class="table-responsive">
