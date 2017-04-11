@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="ja">
+
+<title>Spring Framework Guru</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.0/jquery.min.js"
+	th:src="@{/webjars/jquery/3.2.0/jquery.min.js}"></script>
+<link
+	href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"
+	th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+	rel="stylesheet" media="screen" />
+</head>
+<body class="skin-blue sidebar-mini">
+<div th:fragment="header">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="nav-header">
+                    <a class="navbar-brand" th:href="@{/}">Spring-Example</a>
+                </div>
+
+                <ul class="nav navbar-nav">
+                  <li><a href="floor.html" th:href="@{/floor}">Floor</a></li>
+                  <li><a href="#">Fuga</a></li>
+                  <li><a href="#">Piyo</a></li>
+                </ul>
+            </div>
+        </nav>
+<header style="background-color:lime;">
+んちゃ!!　<span></span>!!
+</header>
+</div>
+
+<div class="container">
+
+</div>
+<div th:fragment="footer">
+<footer style="background-color:lime;">eninsr.think@gmail.com</footer>
+</div>
+</body>
+</html>

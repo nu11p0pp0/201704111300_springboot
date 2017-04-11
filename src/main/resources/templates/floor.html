@@ -16,31 +16,24 @@
 </head>
 <body class="skin-blue sidebar-mini">
 
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="nav-header">
-				<a class="navbar-brand" href="/floor">Mフロア</a>
-			</div>
-
-		</div>
-	</nav>
-	<form action="#" th:action="@{./floor}" method="post" th:object="${floorForm}">
-
+	<form action="#" th:action="@{./floor}" method="post"
+		th:object="${floorForm}">
+		<div th:replace="common::header">header.</div>
 		<div class="container">
 			<div style="width: 300px;">
 				<div class="form-group">
-					<label class="control-label" for="inputText">フロアコード</label>
-					<input
+					<label class="control-label" for="inputText">フロアコード</label> <input
 						type="text" class="form-control" id="inputText" name="ftext"
 						maxlength="2" th:field="*{floorCd}" th:errorclass="fieldError" />
-					<span th:if="${#fields.hasErrors('floorCd')}" class="text-danger" th:errors="*{floorCd}">フロアコード入力エラー！</span>
+					<span th:if="${#fields.hasErrors('floorCd')}" class="text-danger"
+						th:errors="*{floorCd}">フロアコード入力エラー！</span>
 				</div>
 				<div class="form-group">
-					<label class="control-label" for="inputText">フロア名</label>
-					<input
+					<label class="control-label" for="inputText">フロア名</label> <input
 						type="text" class="form-control" id="inputText" name="ftext"
 						maxlength="40" th:field="*{floorName}" th:errorclass="fieldError" />
-					<span th:if="${#fields.hasErrors('floorName')}" class="text-danger" th:errors="*{floorName}">フロア名入力エラー！</span>
+					<span th:if="${#fields.hasErrors('floorName')}" class="text-danger"
+						th:errors="*{floorName}">フロア名入力エラー！</span>
 				</div>
 				<button type="submit" class="btn btn-primary">追加</button>
 				<a href="#" th:href="@{./floor}" class="btn btn-default">クリア</a>
@@ -63,7 +56,7 @@
 				</table>
 			</div>
 		</div>
-
+		<div th:replace="common::footer">footer.</div>
 	</form>
 </body>
 </html>
