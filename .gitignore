@@ -1,1 +1,28 @@
+<<<<<<< Upstream, based on 201704111300_springboot.git/master
 /target/
+=======
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+#.classpath
+.factorypath
+#.project
+#.settings
+#.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+>>>>>>> 224eb89 modifyyyy

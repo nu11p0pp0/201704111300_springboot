@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import com.example.hwmanage.models.MFloor;
 import com.example.hwmanage.models.repository.MFloorReppository;
 
 /**
+ * 
  * @author saitoshu
  *
  */
@@ -35,10 +37,12 @@ public class FloorController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST, value = "/floor")
-	public String save(@Validated @ModelAttribute MFloor form, BindingResult result, Model model) {
+	public String save(@Validated @ModelAttribute MFloor form, BindingResult result, Model model, Errors errors) {
 
 		if (result.hasErrors()) {
+			init(model);
 			model.addAttribute("form", form);
+			// 初期表示.
 			return "floor";
 		}
 
