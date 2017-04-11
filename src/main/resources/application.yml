@@ -5,7 +5,7 @@ spring:
     cache: false
 # DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
   datasource:
-    url: jdbc:postgresql://ztokkfil7/hwmanage
+    url: jdbc:postgresql://localhost/postgres
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver

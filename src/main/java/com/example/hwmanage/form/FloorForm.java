@@ -3,8 +3,7 @@
  */
 package com.example.hwmanage.form;
 
-import java.io.Serializable;
-
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -13,11 +12,9 @@ import org.hibernate.validator.constraints.NotBlank;
  * @author saitoshu
  *
  */
-public class FloorForm implements Serializable {
+public class FloorForm implements HwManageForm {
 
-	private static final long serialVersionUID = 1L;
-
-	@NotBlank
+	@NotNull
 	protected Integer floorCd;
 
 	@NotBlank

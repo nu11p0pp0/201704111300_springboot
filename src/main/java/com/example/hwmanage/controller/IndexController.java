@@ -4,20 +4,29 @@
 package com.example.hwmanage.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+
+import com.example.hwmanage.form.HwManageForm;
 
 /**
  * @author saitoshu
  *
  */
 @Controller
-public class IndexController {
+@RequestMapping(path = "/")
+public class IndexController implements HwManageController {
 
-	@RequestMapping(method = RequestMethod.GET, value = "/")
-	public ModelAndView index(ModelAndView mav) {
-		mav.setViewName("index");
-		return mav;
+	@Override
+	public HwManageForm setupForm() {
+		return null;
 	}
+
+	@Override
+	@RequestMapping(method = RequestMethod.GET)
+	public String init(Model model) {
+		return "index";
+	}
+
 }

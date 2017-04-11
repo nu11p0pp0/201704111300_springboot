@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.hwmanage.form.FloorForm;
+import com.example.hwmanage.form.HwManageForm;
 import com.example.hwmanage.models.MFloor;
 import com.example.hwmanage.models.repository.MFloorReppository;
 
@@ -23,17 +24,20 @@ import com.example.hwmanage.models.repository.MFloorReppository;
  *
  */
 @Controller
-public class FloorController {
+@RequestMapping(path = "/floor")
+public class FloorControllerImpl implements HwManageController {
 
 	@Autowired
 	protected MFloorReppository mFloorReppository;
 
+	@Override
 	@ModelAttribute
-	public FloorForm setupForm() {
+	public HwManageForm setupForm() {
 		return new FloorForm();
 	}
-	
-	@RequestMapping(method = RequestMethod.GET, value = "/floor")
+
+	@Override
+	@RequestMapping(method = RequestMethod.GET)
 	public String init(Model model) {
 		Iterable<MFloor> mfloors = mFloorReppository.findAll();
 		model.addAttribute("floors", mfloors);
@@ -41,8 +45,8 @@ public class FloorController {
 		return "floor";
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/floor")
-	public String save(@Valid FloorForm floorForm, BindingResult result, Model model) {
+	@RequestMapping(method = RequestMethod.POST)
+	public String submit(@Valid FloorForm floorForm, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {
 			Iterable<MFloor> mfloors = mFloorReppository.findAll();
@@ -62,4 +66,5 @@ public class FloorController {
 		mFloor.setFloorName(form.getFloorName());
 		return mFloor;
 	}
+
 }
